@@ -1,7 +1,7 @@
 {
 	"name": "squinky",
 	"description": "Web Component and Angular Module generator, written in React and Ink",
-	"version": "1.0.0",
+	"version": "1.0.3",
 	"license": "MIT",
 	"bin": "./build/cli.js",
 	"engines": {
@@ -10,10 +10,9 @@
 	"scripts": {
 		"dev": "pastel dev",
 		"build": "pastel build",
-		"prepare": "pastel build",
-		"postinstall": "npm link"
+		"prepare": "pastel build"
 	},
-	"author": "Kovacs Arthur <kovacs.arthur.kraid@gmail.com> (http://github.com/ArthurianX)",
+	"author": "Arthur Kovacs <kovacs.arthur.kraid@gmail.com> (http://github.com/ArthurianX)",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ArthurianX/squinky.git"
@@ -34,7 +33,8 @@
 		"ink-spinner": "^3.0.1",
 		"ink-text-input": "^3.1.1",
 		"isomorphic-fetch": "^2.2.1",
-		"pasteljs": "^1.0.1",
+		"ncp": "^2.0.0",
+		"pasteljs": "1.0.2",
 		"prop-types": "^15.7.2",
 		"react": "^16.8.6",
 		"react-final-form": "^4.1.0",

@@ -1,0 +1,67 @@
+{
+  "$schema": "./node_modules/ng-packagr/package.schema.json",
+  "name": "base-angular-component",
+  "version": "0.0.1",
+  "ngPackage": {
+    "lib": {
+      "entryFile": "public_api.ts"
+    },
+    "whitelistedNonPeerDependencies": [
+      "."
+    ],
+    "dest": "../../vagabond-vending-internal-admin-v2/libs/base-angular-component"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "start-serving": "concurrently \"ng serve\" \"ng-packagr -p package.json --watch\"",
+    "start-via": "ng-packagr -p package.json --watch",
+    "build": "ng build --prod --output-hashing=none && cat dist/base-angular-component/{runtime,polyfills,scripts,main}.js > dist/base-angular-component.js",
+    "build-packagr": "cp -R ../shared/via-models node_modules/via-models && ng-packagr -p package.json && rm -rf node_modules/via-models",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@angular/core": "~7.2.15",
+    "@angular/common": "~7.2.15",
+    "@angular/compiler": "~7.2.15",
+    "@angular/animations": "^7.2.15",
+    "@angular/elements": "^7.2.15",
+    "@angular/forms": "~7.2.15",
+    "@angular/platform-browser": "~7.2.15",
+    "@angular/platform-browser-dynamic": "~7.2.15",
+    "@angular/router": "~7.2.15",
+    "core-js": "^2.5.4",
+    "document-register-element": "^1.7.2",
+    "hammerjs": "^2.0.8",
+    "rxjs": "~6.4.0",
+    "zone.js": "~0.8.26",
+    "tslib": "^1.9.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.13.0",
+    "@angular/cli": "~7.3.6",
+    "@angular/compiler-cli": "~7.2.0",
+    "@angular/language-service": "~7.2.0",
+    "@types/jasmine": "~2.8.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
+    "codelyzer": "~4.5.0",
+    "concurrently": "^4.1.0",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^5.2.0",
+    "protractor": "~5.4.0",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.2.2"
+  }
+}
