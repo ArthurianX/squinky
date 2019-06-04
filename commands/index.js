@@ -6,6 +6,7 @@ import SelectInput from '../components/SelectInput'
 import MultiSelectInput from '../components/MultiSelectInput'
 import Error from '../components/Error'
 import semver from 'semver'
+import exec from 'child_process'
 import fetch from 'node-fetch'
 import path from 'path'
 import ncp from 'ncp'
@@ -33,6 +34,7 @@ const copyProject = sData => {
 	console.log(__dirname); //=> LOCATION OF 'Binary'
 	console.log(process.cwd()); //=> LOCATION where command has been run
 	//	https://stackoverflow.com/a/49875811/1835217
+	// git clone -b via https://github.com/ArthurianX/base-angular-component.git
 	let sourceLocation = __dirname.replace('/build/commands', '/base-angular-component');
 	let destinationLocation = process.cwd() + '/' + sData.name;
 	ncp(sourceLocation, destinationLocation, function (err) {
@@ -40,6 +42,22 @@ const copyProject = sData => {
 			return console.error(err);
 		}
 		// console.log('done!');
+	});
+};
+
+const cloneBaseProject = (sData) => {
+	// TODO: Where does it clone it though ?
+	// TODO: Need to always get the latest version
+	exec('git clone https://github.com/ArthurianX/base-angular-component.git', (err, stdout, stderr) => {
+		if (err) {
+			// node couldn't execute the command
+			return;
+		}
+
+		// the *entire* stdout and stderr (buffered)
+		console.log(`stdout: ${stdout}`);
+		console.log(`stderr: ${stderr}`);
+		copyProject(sData);
 	});
 };
 
@@ -200,7 +218,7 @@ export default function SquinkyForm() {
 		<AppContext.Consumer>
 			{({ exit }) => {
 
-				// copyProject(submission);
+				// cloneBaseProject(submission);
 
 				// IF / Else to return success or not.
 				setTimeout(exit);
